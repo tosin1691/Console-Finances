@@ -104,7 +104,6 @@ console.log("Total: " + "$" + netTotal)
 
 //The below is used to calculate total changes between periods listed in our array and the dividing it by (number of months - 1). to avoid getting undefined when using the nextMonthsValue variable, the if statement has been utilised to ensure totalMonthlyChange calculation is computed only if nextMonthsValue is true//
 
-var change = 0
 var totalMonthlyChange = 0
 
 for(i = 0; i < finances.length; i++){
@@ -115,6 +114,7 @@ for(i = 0; i < finances.length; i++){
   }
   
 }
+
 var averageChange = totalMonthlyChange/(totalMonths - 1)
 
 console.log("Average Change: " + averageChange.toFixed(2))
