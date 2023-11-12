@@ -8,7 +8,7 @@ Analysed a set financial records stored in Array and used JS to produce required
 
 ## JavaScript
 
-I used provided financial records stored in an Array to calculate:
+I used the provided financial records stored in an Array to calculate:
 
 1) The total number of months included in the dataset
 2) The net total amount of Profit/Losses over the entire period
@@ -27,14 +27,14 @@ N/A
 
 ## Credits
 
-N/A
+https://stackoverflow.com/ - Utilised resources from this platform 
 
 ## Screenshot
-![Alt text](<Screenshot Horiseon.png>)
+![Alt text](<./Images/Console-Finance screenshot.png>)
 
 ## Deployed application
 
-https://tosin1691.github.io/Horiseon-search-engine-optimization/
+https://tosin1691.github.io/Console-Finances/
 
 
 ## License
