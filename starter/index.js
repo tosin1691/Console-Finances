@@ -85,31 +85,74 @@ var finances = [
   ['Dec-2016', 60988],
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
-];
+]
+
+//The below calculates the total number of month using the .length property
 
 var totalMonths = finances.length
-console.log(totalMonths)
+console.log("Total Months: " + totalMonths)
+
+// The below calculates the net total of profit/losses over the periods in the array//
 
 var netTotal = 0
-var change = 0
-var totalAverage = 0
 
-for(i = 0; i <finances.length; i++){
+for(i = 0; i < finances.length; i++){
  netTotal += finances[i][1]
 }
 
-console.log(netTotal)
+console.log("Total: " + "$" + netTotal)
 
-//console.log(netTotal/(totalMonths - 1))
+//The below is used to calculate total changes between periods listed in our array and the dividing it by (number of months - 1). to avoid getting undefined when using the nextMonthsValue variable, the if statement has been utilised to ensure totalMonthlyChange calculation is computed only if nextMonthsValue is true//
 
-for(i = 0; i <finances.length; i++){
-  var monthlyChange = change - finances[i][1]
-  change = finances[i][1] 
-  var totalMonthlyChange = change - finances[0][1]
-  var averageChange = totalMonthlyChange/(totalMonths - 1)
- }
+var change = 0
+var totalMonthlyChange = 0
 
-console.log(averageChange)
+for(i = 0; i < finances.length; i++){
+  // change = finances[i][1] 
+  var currentMonthsValue = finances[i][1] 
+  var nextMonthsValue = finances[i+1]
+  if (nextMonthsValue){
+    totalMonthlyChange += nextMonthsValue[1] - currentMonthsValue
+  }
+  
+}
+var averageChange = totalMonthlyChange/(totalMonths - 1)
+
+console.log("Average Change: " + averageChange.toFixed(2))
+
+// The below calculates the greatest Increase/Decrease in profit/losses by utilising the codes used from line 110-115 and applying the max and min properties//
+
+var monthlyPeriodFinancialChange
+var max = 0
+var min = 0
+var arri = []
+var largestIncrease
+var largestDecrease
+
+for(i = 0; i < finances.length; i++){
+  var nextMonthFinancial = finances[i+1]
+  var currentMonthFinancial = finances[i][1]
+  if(nextMonthFinancial){
+  monthlyPeriodFinancialChange = nextMonthFinancial[1] - currentMonthFinancial
+  max = Math.max(max, monthlyPeriodFinancialChange)
+  min = Math.min(min,monthlyPeriodFinancialChange)
+  if(monthlyPeriodFinancialChange === max){
+    largestIncrease = i+1
+  }
+  }
+  if(monthlyPeriodFinancialChange === min){
+    largestDecrease = i+1
+  }
+
+  }
+
+  console.log("Greatest Increase in Profits/Losses: " + finances[largestIncrease][0] + " " + "($"+ max + ")")
+  console.log("Greatest Decrease in Profits/Losses: " + finances[largestDecrease][0] + " " + "($"+ min + ")")
+
+
+ 
+
+
 
 
 
