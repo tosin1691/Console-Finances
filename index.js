@@ -108,7 +108,6 @@ var change = 0
 var totalMonthlyChange = 0
 
 for(i = 0; i < finances.length; i++){
-  // change = finances[i][1] 
   var currentMonthsValue = finances[i][1] 
   var nextMonthsValue = finances[i+1]
   if (nextMonthsValue){
@@ -125,7 +124,6 @@ console.log("Average Change: " + averageChange.toFixed(2))
 var monthlyPeriodFinancialChange
 var max = 0
 var min = 0
-var arri = []
 var largestIncrease
 var largestDecrease
 
