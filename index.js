@@ -87,6 +87,13 @@ var finances = [
   ['Feb-2017', 671099],
 ]
 
+// The below is the header for the challenge //
+
+var header = "Financial Analysis"
+var line = "----------------"
+
+console.log(header + '\n' + line)
+
 //The below calculates the total number of month using the .length property
 
 var totalMonths = finances.length
@@ -104,18 +111,18 @@ console.log("Total: " + "$" + netTotal)
 
 //The below is used to calculate total changes between periods listed in our array and the dividing it by (number of months - 1). to avoid getting undefined when using the nextMonthsValue variable, the if statement has been utilised to ensure totalMonthlyChange calculation is computed only if nextMonthsValue is true//
 
-var totalMonthlyChange = 0
+var monthlyPeriodFinancialChange = 0
 
 for(i = 0; i < finances.length; i++){
   var currentMonthsValue = finances[i][1] 
   var nextMonthsValue = finances[i+1]
   if (nextMonthsValue){
-    totalMonthlyChange += nextMonthsValue[1] - currentMonthsValue
+    monthlyPeriodFinancialChange += nextMonthsValue[1] - currentMonthsValue
   }
   
 }
 
-var averageChange = totalMonthlyChange/(totalMonths - 1)
+var averageChange = monthlyPeriodFinancialChange/(totalMonths - 1)
 
 console.log("Average Change: " + averageChange.toFixed(2))
 
